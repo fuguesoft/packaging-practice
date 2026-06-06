@@ -19,20 +19,23 @@ stdenv.mkDerivation rec {
     # sha256 = "02518704976d108a356d685bf351de17142dd76f";
   };
 
+  nativeBuildInputs = [
+    cmake
+  ];
+
   buildInputs = [
     ncurses
-    cmake
     gcc
   ];
 
-  installPhase = ''
-    runHook preInstall
-    mkdir -p $out/build/source
-    touch $out/build/source/CMakeList.txt
-    # make
-    # sudo make install
-    runHook postInstall
-    # mkdir -p $out/build/source
-  '';
+  # installPhase = ''
+  #   runHook preInstall
+  #   mkdir -p $out/build/source
+  #   touch $out/build/source/CMakeList.txt
+  #   # make
+  #   # sudo make install
+  #   runHook postInstall
+  #   # mkdir -p $out/build/source
+  # '';
 
 }
