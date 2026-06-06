@@ -3,7 +3,7 @@
   fetchFromGitHub,
   ncurses,
   gnumake,
-  # cmake,
+  sudo,
   gcc,
 }:
 
@@ -16,24 +16,27 @@ stdenv.mkDerivation rec {
     repo = "kabmat";
     tag = "v${version}";
     # rev = "${version}";
-    sha256 = "EnkW14L/y20IrSDxO7kbMP33/jEMKCLR6+m3V92BfMQ=";
-    # sha256 = "02518704976d108a356d685bf351de17142dd76f";
+    sha256 = "02518704976d108a356d685bf351de17142dd76f";
+    # sha256 = "EnkW14L/y20IrSDxO7kbMP33/jEMKCLR6+m3V92BfMQ=";
+
   };
 
   nativeBuildInputs = [
     gnumake
-    # cmake
   ];
 
   buildInputs = [
     ncurses
     gcc
+    sudo
   ];
 
   makeFlags = [
     "DESTDIR=$(out)"
     "DATA_DIR=$(out)"
   ];
+
+  # dontInstall = true;
 
   # installPhase = ''
   #   runHook preInstall
