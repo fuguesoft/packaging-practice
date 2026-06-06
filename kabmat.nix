@@ -30,8 +30,8 @@ stdenv.mkDerivation rec {
 
   # installPhase = ''
   #   runHook preInstall
-  #   mkdir -p $out/build/source
-  #   touch $out/build/source/CMakeList.txt
+  #   # mkdir -p $out/build/source
+  #   # touch $out/build/source/CMakeList.txt
   #   # make
   #   # sudo make install
   #   runHook postInstall
