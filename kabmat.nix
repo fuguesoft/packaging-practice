@@ -1,5 +1,6 @@
 {
   stdenv,
+  # fetchFromGitHub,
   fetchFromGitHub,
   ncurses,
   gnumake,
@@ -14,9 +15,12 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "PlankCipher";
     repo = "kabmat";
-    tag = "v${version}";
-    # rev = "${version}";
-    sha256 = "02518704976d108a356d685bf351de17142dd76f";
+    # tag = "v${version}";
+    rev = "02518704976d108a356d685bf351de17142dd76f";
+    hash = "sha256-AXTSwJTKwN909QgQtVgwDJgYVrI2ED0bJNmbzh/Kph0=";
+    # hash = "02518704976d108a356d685bf351de17142dd76f";
+
+    # sha256 = "02518704976d108a356d685bf351de17142dd76f";
     # sha256 = "EnkW14L/y20IrSDxO7kbMP33/jEMKCLR6+m3V92BfMQ=";
 
   };
