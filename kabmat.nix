@@ -2,6 +2,7 @@
   stdenv,
   fetchFromGitHub,
   ncurses,
+  gnumake,
   # cmake,
   gcc,
 }:
@@ -20,12 +21,18 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [
+    gnumake
     # cmake
   ];
 
   buildInputs = [
     ncurses
     gcc
+  ];
+
+  makeFlags = [
+    "DESTDIR=$(out)"
+    "DATA_DIR=$(out)"
   ];
 
   # installPhase = ''
