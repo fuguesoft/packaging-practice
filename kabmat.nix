@@ -2,7 +2,7 @@
   stdenv,
   fetchFromGitHub,
   ncurses,
-  cmake,
+  # cmake,
   gcc,
 }:
 
@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [
-    cmake
+    # cmake
   ];
 
   buildInputs = [
