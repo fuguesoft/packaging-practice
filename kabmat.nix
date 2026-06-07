@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
     repo = "kabmat";
     # tag = "v${version}";
     rev = "02518704976d108a356d685bf351de17142dd76f";
-    hash = "sha256-AXTSwJTKwN909QgQtVgwDJgYVrI2ED0bJNmbzh/Kph0=";
+    sha256 = "sha256-AXTSwJTKwN909QgQtVgwDJgYVrI2ED0bJNmbzh/Kph0=";
     # hash = "02518704976d108a356d685bf351de17142dd76f";
 
     # sha256 = "02518704976d108a356d685bf351de17142dd76f";
