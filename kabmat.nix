@@ -8,7 +8,7 @@
 
 stdenv.mkDerivation {
   pname = "kabmat";
-  # version = "2.7.0";
+  version = "2.7.0";
 
   src = fetchFromGitHub {
     owner = "PlankCipher";
