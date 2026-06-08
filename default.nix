@@ -6,7 +6,8 @@ let
 
   nixpkgs = fetchTarball {
     url = "https://releases.nixos.org/nixos/26.05/nixos-26.05.1183.6b316287bae2/nixexprs.tar.xz";
-    sha256 = "0wp4hqw5pgjvmgqq566i064dwg6k97wd1basxc5lwbf2nn2ih8ld"; # replace after error / with result of nix-prefetch-rul
+    sha256 = "";
+    # sha256 = "0wp4hqw5pgjvmgqq566i064dwg6k97wd1basxc5lwbf2nn2ih8ld"; # replace after error / with result of nix-prefetch-rul
   };
 
   # nixpkgs = fetchTarball {
