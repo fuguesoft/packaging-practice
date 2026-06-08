@@ -2,7 +2,8 @@
   stdenv,
   fetchFromGitHub,
   uv,
-  # cmake,
+  gnumake,
+  prek,
 }:
 stdenv.mkDerivation rec {
   pname = "kanban-tui";
@@ -17,11 +18,12 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [
-    # cmake
+    gnumake
   ];
 
   buildInputs = [
     uv
+    prek
   ];
 
 }
