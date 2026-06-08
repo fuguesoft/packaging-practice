@@ -27,8 +27,8 @@ stdenv.mkDerivation {
 
   makeFlags = [
     "PREFIX=$(out)"
+    "DATA_DIR=$(out)"
     # "DESTDIR=$(out)"
-    # "DATA_DIR=$(out)"
   ];
 
   # dontInstall = true;
