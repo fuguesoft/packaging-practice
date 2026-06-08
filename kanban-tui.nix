@@ -26,4 +26,8 @@ stdenv.mkDerivation rec {
     prek
   ];
 
+  makeFlags = [
+    "PREFIX=$(out)"
+  ];
+
 }
