@@ -1,4 +1,3 @@
-{ lib, ... }:
 let
   # nixpkgs = fetchTarball {
   #   url = "https://github.com/NixOS/nixpkgs/archive/9b696460ac78b5ccfc17c854d8c976f20456e943.tar.gz";
