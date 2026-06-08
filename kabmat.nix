@@ -3,6 +3,7 @@
   fetchFromGitHub,
   ncurses,
   gnumake,
+  writableTmpDirAsHomeHook,
 }:
 
 stdenv.mkDerivation {
@@ -18,6 +19,7 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     gnumake
+    writableTmpDirAsHomeHook
   ];
 
   buildInputs = [

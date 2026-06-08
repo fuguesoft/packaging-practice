@@ -1,34 +1,31 @@
 {
-  # lib,
-  buildPythonPackage,
-  fetchPypi,
-  # python3,
-  # uv,
-  # gnumake,
-  # prek,
-  # writableTmpDirAsHomeHook,
+  stdenv,
+  fetchFromGitHub,
+  uv,
+  gnumake,
+  prek,
+  writableTmpDirAsHomeHook,
 }:
-buildPythonPackage rec {
+stdenv.mkDerivation rec {
   pname = "kanban-tui";
   version = "0.21.1";
 
-  src = fetchPypi {
-    inherit pname version;
+  src = fetchFromGitHub {
+    owner = "Zaloog";
+    repo = "kanban-tui";
+    rev = "v${version}";
     sha256 = "FZTUNkoKYJVVn7QD96Z9c9y+kMdAI0eEkZ/jN1I0sbk=";
-    # owner = "Zaloog";
-    # repo = "kanban-tui";
-    # rev = "v${version}";
     # hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
   };
 
   nativeBuildInputs = [
-    # gnumake
-    # writableTmpDirAsHomeHook
+    gnumake
+    writableTmpDirAsHomeHook
   ];
 
   buildInputs = [
-    # uv
-    # prek
+    uv
+    prek
   ];
 
   # buildPhase = ''
@@ -43,8 +40,8 @@ buildPythonPackage rec {
   #   runhook postBuild
   # '';
 
-  # makeFlags = [
-  #   "PREFIX=$(out)"
-  # ];
+  makeFlags = [
+    "PREFIX=$(out)"
+  ];
 
 }
