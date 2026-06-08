@@ -1,6 +1,5 @@
 {
   stdenv,
-  # fetchFromGitHub,
   fetchFromGitHub,
   ncurses,
   gnumake,
@@ -28,19 +27,5 @@ stdenv.mkDerivation {
   makeFlags = [
     "PREFIX=$(out)"
     "DATA_DIR=$(out)"
-    # "DESTDIR=$(out)"
   ];
-
-  # dontInstall = true;
-
-  # installPhase = ''
-  #   runHook preInstall
-  #   # mkdir -p $out/build/source
-  #   # touch $out/build/source/CMakeList.txt
-  #   # make
-  #   # sudo make install
-  #   runHook postInstall
-  #   # mkdir -p $out/build/source
-  # '';
-
 }
