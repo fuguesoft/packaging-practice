@@ -2,27 +2,25 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  # gnumake,
 }:
-{
-  stdenv.mkDerivation = (
-    finalAttrs: rec {
-      pname = "textual-jumper";
-      version = "0.2.1";
+stdenv.mkDerivation (finalAttrs: {
+  pname = "textual-jumper";
+  version = "0.2.1";
 
-      src = fetchFromGitHub {
-        owner = "Zaloog";
-        repo = "textual-jumper";
-        rev = "v${version}";
-        hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-      };
+  src = fetchFromGitHub {
+    owner = "Zaloog";
+    repo = "textual-jumper";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-F3TA8ZWAFYxc1vSo2Cu5WSTr78rf/IO7hs+L4voT8Jw=";
+  };
 
-      nativeBuildInputs = [
+  nativeBuildInputs = [
+    # gnumake
+  ];
+  buildInputs = [
 
-      ];
-      buildInputs = [
+  ];
 
-      ];
-
-    }
-  );
-}
+  # makeFlags = [ "PREFIX=$(out)" ];
+})
