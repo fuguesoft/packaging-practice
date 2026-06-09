@@ -2,14 +2,32 @@
 # separately and is also slop code so I may not even do it.
 {
   python3,
-  fetchFromGitHub,
+  python314Packages,
   uv,
   prek,
+  fetchFromGitHub,
+  # fetchPypi,
+  # python,
+  # setuptools,
 }:
 python3.pkgs.buildPythonApplication rec {
   pname = "kanban-tui";
   version = "0.21.1";
   pyproject = true;
+  # format = "wheel";
+  # python = python3;
+
+  # src = fetchPypi {
+  #   # owner = "Zaloog";
+  #   # repo = "kanban-tui";
+  #   # rev = "v${version}";
+  #   inherit pname version;
+  #   dist = python;
+  #   python = "py3";
+  #   hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+  # };
+
+  build-system = with python314Packages; [ setuptools ];
 
   src = fetchFromGitHub {
     owner = "Zaloog";
@@ -35,4 +53,5 @@ python3.pkgs.buildPythonApplication rec {
     tzdata
     xdg-base-dirs
   ];
+
 }
