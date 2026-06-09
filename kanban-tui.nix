@@ -1,14 +1,10 @@
+# this needs a package called textual-jumper which needs to be packaged
+# separately and is also slop code so I may not even do it.
 {
-  lib,
   python3,
   fetchFromGitHub,
-  # buildPythonPackage,
-  # setuptools,
-  # uv,
-  # gnumake,
-  # prek,
-  # python314Packages.wheel,
-  # writableTmpDirAsHomeHook,
+  uv,
+  prek,
 }:
 python3.pkgs.buildPythonApplication rec {
   pname = "kanban-tui";
@@ -20,42 +16,23 @@ python3.pkgs.buildPythonApplication rec {
     repo = "kanban-tui";
     rev = "v${version}";
     hash = "sha256-FZTUNkoKYJVVn7QD96Z9c9y+kMdAI0eEkZ/jN1I0sbk=";
-    # inherit pname version;
-    # sha256 = "FZTUNkoKYJVVn7QD96Z9c9y+kMdAI0eEkZ/jN1I0sbk=";
-    # owner = "Zaloog";
-    # repo = "kanban-tui";
-    # rev = "v${version}";
-    # hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
   };
 
   nativeBuildInputs = with python3.pkgs; [
     setuptools
-    # gnumake
-    # writableTmpDirAsHomeHook
+    wheel
+    hatch
   ];
 
-  # build-system = [ setuptools ];
-  # dependencies = [ setuptools ];
-
-  buildInputs = [
-    # uv
-    # prek
+  buildInputs = with python3.pkgs; [
+    uv
+    prek
+    pydantic-settings
+    python-dateutil
+    textual
+    # textual-jumper
+    textual-plotext
+    tzdata
+    xdg-base-dirs
   ];
-
-  # buildPhase = ''
-  #   runHook writable-tmpdir-as-home.sh
-  # '';
-
-  # buildPhase = ''
-  #   runHook preBuild
-  #
-  #   writable-tmpdir-as-home.sh
-  #
-  #   runhook postBuild
-  # '';
-
-  # makeFlags = [
-  #   "PREFIX=$(out)"
-  # ];
-
 }
