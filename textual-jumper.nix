@@ -38,17 +38,7 @@ python3.pkgs.buildPythonPackage (finalAttrs: {
     #   version = "0.8.19";
     # })
 
-    # (pkgs.uv-build.overrideAttrs (previousAttrs: rec {
-    #   name = "blegh";
-    #   version = "urmum";
-    #   src = pkgs.fetchFromGitHub {
-    #     owner = "";
-    #     repo = "";
-    #     rev = "v${version}";
-    #     hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-    #   };
-    # });
-    # );
+    # uv-build is part of uv so don't know what's up with this
 
   ];
 
@@ -56,10 +46,10 @@ python3.pkgs.buildPythonPackage (finalAttrs: {
     setuptools
     wheel
     hatch
-    # uv
-    (uv-build.overrideAttrs (previousAttrs: {
-      version = "0.8.19";
-    }))
+    uv
+    # (uv-build.overrideAttrs (previousAttrs: {
+    #   version = "0.8.19";
+    # }))
   ];
 
   # makeFlags = [ "PREFIX=$(out)" ];
