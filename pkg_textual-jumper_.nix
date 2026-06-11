@@ -1,11 +1,6 @@
 {
-  lib,
-  # stdenv,
   fetchFromGitHub,
   python3,
-  python314Packages,
-  pkgs,
-  # gnumake,
 }:
 python3.pkgs.buildPythonPackage (finalAttrs: {
   pname = "textual-jumper";
@@ -20,37 +15,23 @@ python3.pkgs.buildPythonPackage (finalAttrs: {
   };
 
   buildInputs = with python3.pkgs; [
-    # uv
-
-    # uv_build<0.9.0,>=0.8.19
-    # uv-build
-    # (uv-build.overrideAttrs (previousAttrs: {
-    #   version = "0.8.19";
-    #   src = fetchFromGitHub {
-    #     owner = "";
-    #     repo = "";
-    #     rev = "";
-    #     has = pkgs.lib.fakeHash;
-    #   };
-    # }))
-
-    # (uv-build.override {
-    #   version = "0.8.19";
-    # })
-
-    # uv-build is part of uv so don't know what's up with this
-
+    uv
+    # textual
   ];
 
   nativeBuildInputs = with python3.pkgs; [
+    textual
     setuptools
     wheel
     hatch
     uv
-    # (uv-build.overrideAttrs (previousAttrs: {
-    #   version = "0.8.19";
-    # }))
   ];
 
-  # makeFlags = [ "PREFIX=$(out)" ];
+  build-system = with python3.pkgs; [ uv-build ];
+
+  postPatch = ''
+    substituteInPlace pyproject.toml \
+      --replace-fail 'uv_build>=0.8.19,<0.9.0' 'uv_build>=0.8.3'
+  '';
+
 })
