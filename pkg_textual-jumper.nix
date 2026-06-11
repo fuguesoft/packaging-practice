@@ -1,8 +1,14 @@
 {
   fetchFromGitHub,
-  python3,
+  textual,
+  setuptools,
+  uv,
+  hatch,
+  wheel,
+  buildPythonPackage,
+  uv-build,
 }:
-python3.pkgs.buildPythonPackage (finalAttrs: {
+buildPythonPackage (finalAttrs: {
   pname = "textual-jumper";
   version = "0.2.1";
   pyproject = true;
@@ -14,12 +20,12 @@ python3.pkgs.buildPythonPackage (finalAttrs: {
     hash = "sha256-F3TA8ZWAFYxc1vSo2Cu5WSTr78rf/IO7hs+L4voT8Jw=";
   };
 
-  buildInputs = with python3.pkgs; [
+  buildInputs = [
     uv
     # textual
   ];
 
-  nativeBuildInputs = with python3.pkgs; [
+  nativeBuildInputs = [
     textual
     setuptools
     wheel
@@ -27,7 +33,15 @@ python3.pkgs.buildPythonPackage (finalAttrs: {
     uv
   ];
 
-  build-system = with python3.pkgs; [ uv-build ];
+  dependencies = [
+    textual
+    setuptools
+    wheel
+    hatch
+    uv
+  ];
+
+  build-system = [ uv-build ];
 
   postPatch = ''
     substituteInPlace pyproject.toml \
