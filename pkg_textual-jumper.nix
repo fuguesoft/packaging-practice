@@ -20,12 +20,10 @@ buildPythonPackage (finalAttrs: {
     hash = "sha256-F3TA8ZWAFYxc1vSo2Cu5WSTr78rf/IO7hs+L4voT8Jw=";
   };
 
-  buildInputs = [
-    uv
-    # textual
-  ];
+  # how do I know which of these needs to be native and which need to be
+  # propagated?
 
-  nativeBuildInputs = [
+  propagatedBuildInputs = [
     textual
     setuptools
     wheel
@@ -33,7 +31,7 @@ buildPythonPackage (finalAttrs: {
     uv
   ];
 
-  dependencies = [
+  nativeBuildInputs = [
     textual
     setuptools
     wheel

@@ -1,16 +1,23 @@
 # this needs a package called textual-jumper which needs to be packaged
 # separately and is also slop code so I may not even do it.
 {
-  python3,
-  python314Packages,
-  uv,
-  prek,
-  fetchFromGitHub,
   # fetchPypi,
-  # python,
-  # setuptools,
+  buildPythonApplication,
+  fetchFromGitHub,
+  hatch,
+  prek,
+  pydantic-settings,
+  python-dateutil,
+  setuptools,
+  textual,
+  # textual-jumper,
+  textual-plotext,
+  tzdata,
+  uv,
+  wheel,
+  xdg-base-dirs,
 }:
-python3.pkgs.buildPythonApplication rec {
+buildPythonApplication rec {
   pname = "kanban-tui";
   version = "0.21.1";
   pyproject = true;
@@ -27,7 +34,7 @@ python3.pkgs.buildPythonApplication rec {
   #   hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
   # };
 
-  build-system = with python314Packages; [ setuptools ];
+  build-system = [ setuptools ];
 
   src = fetchFromGitHub {
     owner = "Zaloog";
@@ -36,13 +43,13 @@ python3.pkgs.buildPythonApplication rec {
     hash = "sha256-FZTUNkoKYJVVn7QD96Z9c9y+kMdAI0eEkZ/jN1I0sbk=";
   };
 
-  nativeBuildInputs = with python3.pkgs; [
+  nativeBuildInputs = [
     setuptools
     wheel
     hatch
   ];
 
-  buildInputs = with python3.pkgs; [
+  propagatedBuildInputs = [
     uv
     prek
     pydantic-settings
