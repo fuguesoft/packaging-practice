@@ -26,6 +26,8 @@ stdenv.mkDerivation {
     ncurses
   ];
 
+  patches = [ ./kabmat.patch ];
+
   makeFlags = [
     "PREFIX=$(out)"
     "DATA_DIR=$(out)"
