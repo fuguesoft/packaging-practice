@@ -1,5 +1,6 @@
 # this needs a package called textual-jumper which needs to be packaged
 # separately and is also slop code so I may not even do it.
+# spoiler alert: I did it
 {
   buildPythonApplication,
   fetchFromGitHub,
