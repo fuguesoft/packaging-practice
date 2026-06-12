@@ -26,7 +26,12 @@ stdenv.mkDerivation {
     ncurses
   ];
 
-  patches = [ ./kabmat.patch ];
+  # patches = [ ./kabmat.patch ];
+  postPatch = ''
+    substituteInPlace src/helpers/consts.h \
+      --replace-fail '#define DATA_FILE (string(getenv("HOME")) + "/.local/share/kabmat/data")' '#define DATA_FILE "/usr/local/share/kabmat/data"'
+      --replace-fail '#define DATA_BACKUP_FILE \ (string(getenv("HOME")) + "/.local/share/kabmat/data_bkp")' '#define DATA_BACKUP_FILE "/usr/local/share/kabmat/data_bkp"'
+  '';
 
   makeFlags = [
     "PREFIX=$(out)"
