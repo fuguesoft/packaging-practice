@@ -1,7 +1,6 @@
 # this needs a package called textual-jumper which needs to be packaged
 # separately and is also slop code so I may not even do it.
 {
-  # fetchPypi,
   buildPythonApplication,
   fetchFromGitHub,
   hatch,
@@ -10,7 +9,7 @@
   python-dateutil,
   setuptools,
   textual,
-  # textual-jumper,
+  textual-jumper,
   textual-plotext,
   tzdata,
   uv,
@@ -21,18 +20,6 @@ buildPythonApplication rec {
   pname = "kanban-tui";
   version = "0.21.1";
   pyproject = true;
-  # format = "wheel";
-  # python = python3;
-
-  # src = fetchPypi {
-  #   # owner = "Zaloog";
-  #   # repo = "kanban-tui";
-  #   # rev = "v${version}";
-  #   inherit pname version;
-  #   dist = python;
-  #   python = "py3";
-  #   hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-  # };
 
   build-system = [ setuptools ];
 
@@ -55,7 +42,7 @@ buildPythonApplication rec {
     pydantic-settings
     python-dateutil
     textual
-    # textual-jumper
+    textual-jumper
     textual-plotext
     tzdata
     xdg-base-dirs
