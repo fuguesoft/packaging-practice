@@ -1,22 +1,11 @@
 {
   fetchFromGitHub,
-  fetchCrate,
   rustPlatform,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
 
   pname = "flow";
   version = "0.1.0";
-
-  # src = fetchCrate {
-  #   inherit (finalAttrs) pname version;
-  #   hash = "sha256-4FonCawwAly5GgYdSOupdzNamDhBgqnKrksGgnxBL98=";
-  #   # hash = "sha256-4FonCawwAly5GgYdSOupdzNamDhBgqnKrksGgnxBL98=";
-  # };
-
-  # cargoLock = {
-  #   lockFile = "${finalAttrs.src}/Cargo.lock";
-  # };
 
   src = fetchFromGitHub {
     owner = "jsubroto";
