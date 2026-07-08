@@ -14,4 +14,5 @@ rec {
   # verse = pkgs.callPackage ./pkg_verse.nix { };
   # audiowaveform = pkgs.callPackage ./pkg_audiowaveform.nix { };
   flow = pkgs.callPackage ./pkg_flow.nix { };
+  m8c = pkgs.callPackage ./pkg_m8c.nix { };
 }
