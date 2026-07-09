@@ -15,4 +15,7 @@ rec {
   # audiowaveform = pkgs.callPackage ./pkg_audiowaveform.nix { };
   flow = pkgs.callPackage ./pkg_flow.nix { };
   m8c = pkgs.callPackage ./pkg_m8c.nix { };
+  sdl = pkgs.callPackage ./pkg_sdl.nix { };
+  qman = pkgs.callPackage ./pkg_qman.nix { };
+
 }
